@@ -4,3 +4,4 @@
 		"src/**/*.spec.ts"
 	]
 }
+// currently there is an error I think it is becuase I have mulitple stores with possibley the same name - ill sort this out in a bit
