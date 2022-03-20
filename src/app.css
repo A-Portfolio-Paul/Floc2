@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1, h2, h3, h4 {
+      @apply font-bold;
+    }
+  }
+  
+  .level1{
+    background:#1E3A8A;
+  }
+  .level2{
+    background:#1D4ED8;
+  }
+  .level3{
+    background:#3B82F6
+  }
+  .level4{
+    background:#60A5FA;
+  }
+  .level5{
+    background:#1E3A8A;
+  }
+  .level6{
+    background:#1D4ED8;
+  }
+  .level7{
+    background:#3B82F6
+  }
+  
+  .level8{
+    background:#60A5FA;
+  }
+  .level9{
+    background:#1E3A8A;
+  }
+  .level10{
+    background:#1E3A8A;
+  }
+  .level11{
+    background:#1E3A8A;
+  }
+  .level12{
+    background:#1E3A8A;
+  }
+  button{
+    font-size: 0.7em;
+  }
+  
+  
