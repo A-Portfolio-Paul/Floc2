@@ -5,6 +5,10 @@
 	import { goto } from '$app/navigation';
 	import Home from '../lib/components/pages/home.svelte';
 	import LoggedIn from '../lib/components/pages/LoggedIn.svelte';
+	import Folders from '../lib/wiki/Folders.svelte';
+
+	//use this to see a view of all my folders
+	let wiki = true;
 
 	onMount(async () => {
 		getSession();
@@ -27,7 +31,9 @@
 	};
 </script>
 
-{#if $user.email}
+{#if wiki}
+	<Folders />
+{:else if $user.email}
 	<LoggedIn />
 {:else}
 	<Home />
