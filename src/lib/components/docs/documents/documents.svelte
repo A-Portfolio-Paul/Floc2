@@ -1,6 +1,6 @@
 <script>
 	import { user, documents } from '../../../stores';
-	import Document from './document/Document.svelte'
+	import Document from '../document/Document.svelte'
 
 </script>
 
