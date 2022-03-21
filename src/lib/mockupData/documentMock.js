@@ -1,7 +1,7 @@
 // details about his document
 import {cards} from './cardsMockup'
 
-const mockDoc = {
+export const docMock = {
     id:1,                           // unique id of doc
     countributors:[],               // all ids of contrinbuters to the document
     contributorDetails:{            // contrinbutor details
@@ -14,7 +14,7 @@ const mockDoc = {
             name:'Jane'
         }
     },
-    card:cards,                     // all cards for the document (all users)
+    cards:cards,                     // all cards for the document (all users)
     cardMaps:{
         1:{
             userId:1,
