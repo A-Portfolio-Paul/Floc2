@@ -1,10 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
 	import supabase from '$lib/db';
-	import { user, documents } from '../lib/stores';
+	import { user, documents, document, usersVersion } from '../lib/stores';
 	import Register from '../lib/components/auth/register.svelte';
 	import Login from '../lib/components/auth/login.svelte';
 	import { updateAlert } from '../lib/functions/alerts';
+	import {documentMock} from '../lib/mockupData/main'
 	export let isNewRegistration = false;
 
 	user.subscribe((value) => {
@@ -45,6 +46,8 @@
 			const userDocIds = await updateDocIds($user.id);
 			const docs = await getUserDocs(userDocIds);
 			await updateStoreDocs(docs);
+			console.log('docMock:',JSON.stringify(documentMock))
+
 			await goto('/');
 		}
 	};
@@ -82,7 +85,13 @@
 			return val;
 		});
 	};
-	const updateStoreUser = (docs) => {
+	const updateStoreDoc = async (docs,curDocId) => {
+		document.update((val) => {
+			val = docs;
+			return val;
+		});
+	};
+	const updateStoreUser = (docs,) => {
 		user.update((val) => {
 			val = docs;
 			return val;

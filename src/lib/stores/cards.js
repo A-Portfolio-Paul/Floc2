@@ -1,4 +1,9 @@
-const cards = {
+import { writable } from 'svelte-local-storage-store'
+import { authenticatedUser } from './authenticatedUser';
+import { get } from 'svelte/store';
+
+// Data {methods below with store output}
+const importedCards = {
 	1: {
 		componentId: 1,
 		url: 'https://en.wikipedia.org/wiki/Bicycle',
@@ -115,4 +120,42 @@ That, and a desire to pollute less, especially if you’re lucky enough to work 
 		}
 	},
 };
-export {cards}
+// RECONSTRUCT THE ABOVE JUST CONTAINING DATA FOR AUTHENTICATED USER
+// 0.1 initialaize vals
+const authenticatedUser_snp = get(authenticatedUser);
+const userId = authenticatedUser_snp.userId;
+
+// 1. Create dictionary {cardId{cardId:versionId},....}
+const createCardIdVersionDict = (importedCards, userId) => {
+	let res = {};
+	for (const [key, value] of Object.entries(importedCards)) {
+		let newVal = value.usersVersion[userId].versionId;
+		res = { ...res, [key]: newVal };
+	}
+	return res;
+};
+const versionIdLookup = createCardIdVersionDict(importedCards, userId);
+// 2. Reconstruct tcard with only data for authenticated user.
+const createUsersCards = (importedCards, versionIdLookup) => {
+	let res = {};
+	for (const [key, value] of Object.entries(importedCards)) {
+		let versionNumber = versionIdLookup[key];
+		res = {
+			...res,
+			[key]: {
+				componentId: value.componentId,
+				url: value.url,
+				allTags: value.allTags,
+				title: value.versions[versionNumber].title,
+				imageUrl: value.versions[versionNumber].imageUrl,
+				notes: value.versions[versionNumber].notes
+			}
+		};
+	}
+	return res;
+};
+const usersCard = createUsersCards(importedCards, versionIdLookup);
+// 3. Create a new store containing only records for authenticated user
+// export const cards = writable(usersCard);
+
+export const cards = writable('cards', usersCard)

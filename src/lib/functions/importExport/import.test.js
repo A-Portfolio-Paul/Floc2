@@ -1,4 +1,3 @@
-import {docMock} from '../../mockupData/documentMock'
 
 
 describe('import', () => {
