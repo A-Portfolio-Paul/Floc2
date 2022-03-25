@@ -12,7 +12,7 @@
 		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest src --config jest.config.json",
-		"test:watch": "npm run test -- --watch"
+		"testw": "npm run test -- --watch"
 	},
 	
 	"devDependencies": {

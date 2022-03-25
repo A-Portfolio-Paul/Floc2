@@ -1,5 +1,5 @@
 
-export const cards1 = {
+export const view2 = {
 	viewId:'vw-102',
 	userId:'ur-102',	//used for security in the database (must match current user to allow edit)
 	docId:'doc-101',

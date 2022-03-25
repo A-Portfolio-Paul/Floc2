@@ -1,6 +1,6 @@
-export const document = {
+export const document1 = {
     docId:'doc-101',
-    createDate:2021-03-21,
+    createDate:'2022-03-25',
     createdBy:'ur-101'
 
 }
