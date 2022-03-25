@@ -4,7 +4,7 @@
 	import { user, sess } from '../lib/stores';
 	import { goto } from '$app/navigation';
 	import Home from '../lib/components/pages/home.svelte';
-	import LoggedIn from '../lib/components/pages/LoggedIn.svelte';
+	import Documents from '../lib/components/docs/Documents.svelte';
 	import Folders from '../lib/components/wiki/Folders.svelte';
 
 	//use this to see a view of all my folders
@@ -34,7 +34,7 @@
 {#if wiki}
 	<Folders />
 {:else if $user}
-	<LoggedIn />
+	<Documents />
 {:else}
 	<Home />
 {/if}

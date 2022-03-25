@@ -1,21 +1,19 @@
 <script>
 	import { goto } from '$app/navigation';
 	import supabase from '$lib/db';
-	import { user, documents, document, usersVersion } from '../lib/stores';
+	//Stores
+	import { user, InitUserDocuments } from '../lib/stores';
+	// import { currrentDocument, currentViews, currentView } from '../lib/stores';
 	import Register from '../lib/components/auth/register.svelte';
 	import Login from '../lib/components/auth/login.svelte';
 	import { updateAlert } from '../lib/functions/alerts';
 
 	export let isNewRegistration = false;
 
-	/// work here
-
 	user.subscribe((value) => {
 		console.log('STORE:user:', value);
 	});
-	documents.subscribe((value) => {
-		console.log('STORE:documents:', value);
-	});
+
 	//set vars
 	let email = '';
 	let password = '';
@@ -45,60 +43,44 @@
 		} else {
 			updateAlert('Login successful', 'notify');
 			$user = userDetails;
-			const userDocIds = await updateDocIds($user.id);
-			const docs = await getUserDocs(userDocIds);
-			await updateStoreDocs(docs);
-			console.log('docMock:', JSON.stringify(documentMock));
-
+			InitUserDocuments()
 			await goto('/');
 		}
 	};
 
 	// update userDocs
-	const updateDocIds = async (userId) => {
-		let { data: users_documents, err } = await supabase
-			.from('users_documents')
-			.select('document_id')
-			.eq('users_id', userId);
-		if (err) {
-			updateAlert(error.message, 'error');
-		} else {
-			return users_documents;
-		}
-	};
+	// const updateDocIds = async (userId) => {
+	// 	let { data: users_documents, err } = await supabase
+	// 		.from('users_documents')
+	// 		.select('document_id')
+	// 		.eq('users_id', userId);
+	// 	if (err) {
+	// 		updateAlert(error.message, 'error');
+	// 	} else {
+	// 		return users_documents;
+	// 	}
+	// };
 
-	const getUserDocs = async (userDocIds) => {
-		let { data, error } = await supabase
-			.from('documents')
-			.select('*')
-			.in('id', userDocIds[0].document_id);
-		if (error) {
-			console.log('BIG BAD ERROR', error);
-		} else {
-			let docs;
-			docs = data;
-			return docs;
-		}
-	};
+	// const getUserDocs = async (userDocIds) => {
+	// 	let { data, error } = await supabase
+	// 		.from('documents')
+	// 		.select('*')
+	// 		.in('id', userDocIds[0].document_id);
+	// 	if (error) {
+	// 		console.log('BIG BAD ERROR', error);
+	// 	} else {
+	// 		let docs;
+	// 		docs = data;
+	// 		return docs;
+	// 	}
+	// };
 
-	const updateStoreDocs = async (docs) => {
-		documents.update((val) => {
-			val = docs;
-			return val;
-		});
-	};
-	const updateStoreDoc = async (docs, curDocId) => {
-		document.update((val) => {
-			val = docs;
-			return val;
-		});
-	};
-	const updateStoreUser = (docs) => {
-		user.update((val) => {
-			val = docs;
-			return val;
-		});
-	};
+	// const updateStoreUser = (user) => {
+	// 	user.update((val) => {
+	// 		val = user;
+	// 		return val;
+	// 	});
+	// };
 </script>
 
 {#if isNewRegistration}
