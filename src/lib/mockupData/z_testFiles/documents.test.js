@@ -1,4 +1,4 @@
-import {documents} from '../documents'
+import {documents_mock} from '../documents'
 
 const testData=[
     {
@@ -16,6 +16,6 @@ const testData=[
 describe.only('Documents', () => {
     it('', () => {
     // console.log('Documents:',documents )
-      expect(documents).toStrictEqual(testData);
+      expect(documents_mock).toStrictEqual(testData);
     });
   });

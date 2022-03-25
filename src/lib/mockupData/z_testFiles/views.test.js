@@ -1,4 +1,4 @@
-import {views} from '../views'
+import {views_mock} from '../views'
 import util from 'util'
 
 const testData =  [
@@ -139,6 +139,6 @@ const testData =  [
 describe.only('Mock:Views', () => {
     it('', () => {
         // console.log(util.inspect(views, { depth: null, colors: true}))
-      expect(views).toStrictEqual(testData);
+      expect(views_mock).toStrictEqual(testData);
     });
   });

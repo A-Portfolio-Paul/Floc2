@@ -13,7 +13,7 @@ Document   PK:docId        FK:viewId             |       Document         1 :  m
 Query path  all docs: with all views & user details: for 1 user
 1. user logs in     -> get userId
 2. userId           -> get views
-3. viewId           -> get docs     (get all docs for this user)
+3. viewId           -> get docs     (get all docs for these views)
 
 -- now get data for each document
 4. docId            -> get views    (other viewId from other cotributors)

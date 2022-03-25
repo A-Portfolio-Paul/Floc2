@@ -5,8 +5,10 @@
 	import Register from '../lib/components/auth/register.svelte';
 	import Login from '../lib/components/auth/login.svelte';
 	import { updateAlert } from '../lib/functions/alerts';
-	import {documentMock} from '../lib/mockupData/main'
+
 	export let isNewRegistration = false;
+
+	/// work here
 
 	user.subscribe((value) => {
 		console.log('STORE:user:', value);
@@ -39,14 +41,14 @@
 		});
 		if (error) {
 			updateAlert(error.message, 'error');
-			await goto('/login')
+			await goto('/login');
 		} else {
 			updateAlert('Login successful', 'notify');
 			$user = userDetails;
 			const userDocIds = await updateDocIds($user.id);
 			const docs = await getUserDocs(userDocIds);
 			await updateStoreDocs(docs);
-			console.log('docMock:',JSON.stringify(documentMock))
+			console.log('docMock:', JSON.stringify(documentMock));
 
 			await goto('/');
 		}
@@ -85,13 +87,13 @@
 			return val;
 		});
 	};
-	const updateStoreDoc = async (docs,curDocId) => {
+	const updateStoreDoc = async (docs, curDocId) => {
 		document.update((val) => {
 			val = docs;
 			return val;
 		});
 	};
-	const updateStoreUser = (docs,) => {
+	const updateStoreUser = (docs) => {
 		user.update((val) => {
 			val = docs;
 			return val;
