@@ -1,4 +1,4 @@
-import {users} from './users'
+import {users} from '../users'
 import util from 'util'
 
 const testData =  [

@@ -1,4 +1,4 @@
-import {documents} from './documents'
+import {documents} from '../documents'
 
 const testData=[
     {
