@@ -11,15 +11,15 @@
 	import { currentDocument, currentViews, currentView } from '../lib/stores';
 
 	//View All Stores\
-	user.subscribe((value) => {
-		console.log('STORE:user:', value);
-	});
-	documents.subscribe((value) => {
-		console.log('STORE:documents:', value);
-	});
-	views.subscribe((value) => {
-		console.log('STORE:views:', value);
-	});
+	// user.subscribe((value) => {
+	// 	console.log('STORE:user:', value);
+	// });
+	// documents.subscribe((value) => {
+	// 	console.log('STORE:documents:', value);
+	// });
+	// views.subscribe((value) => {
+	// 	console.log('STORE:views:', value);
+	// });
 	currentDocument.subscribe((value) => {
 		console.log('STORE:currentDocument:', value);
 	});

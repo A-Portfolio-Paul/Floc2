@@ -2,16 +2,16 @@
 	import DocumentsTable from './Table.svelte'
 	import Document from './document/Document.svelte'
 	// import Documents from '../docs/documents/documents.svelte'
-	import { documents, views, users } from '../../stores';
-	documents.subscribe((value) => {
-		console.log('STORE:documents:', value);
-	});
-	views.subscribe((value) => {
-		console.log('STORE:views:', value);
-	});
-	users.subscribe((value) => {
-		console.log('STORE:users:', value);
-	});
+	// import { documents, views, users } from '../../stores';
+	// documents.subscribe((value) => {
+	// 	console.log('STORE:documents:', value);
+	// });
+	// views.subscribe((value) => {
+	// 	console.log('STORE:views:', value);
+	// });
+	// users.subscribe((value) => {
+	// 	console.log('STORE:users:', value);
+	// });
 	$:docId = false
 
 

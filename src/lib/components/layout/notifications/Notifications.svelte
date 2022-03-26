@@ -3,14 +3,11 @@
 	import Notification from './Notification.svelte';
 	// import Banner from '$lib/layout/Banner.svelte';
 
-	alerts.subscribe((value) => {
-		console.log('STORE:alerts:', value, 'alerts length:', value.length);
-	});
-
-
+	// alerts.subscribe((value) => {
+	// 	console.log('STORE:alerts:', value, 'alerts length:', value.length);
+	// });
 
 	let displayNotification = true; // this will be a prop
-	console.log('setTimeout() example...');
 
 	const hide = () => {
 		displayNotification = false;

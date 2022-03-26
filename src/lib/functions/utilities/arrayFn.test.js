@@ -11,10 +11,8 @@ const testData=
 
 describe('UTILS:ARRAYS:getObjById:docs', () => {
     it('', () => {
-      console.log('docArr:',testData)
-      console.log('getById',getObjById(documents_mock,'doc-101','docId'))
       const res = getObjById(documents_mock,'doc-101','docId')
-
+      
       expect(res).toStrictEqual(testData);
     });
   });

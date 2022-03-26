@@ -3,7 +3,6 @@
 		export let docId 
 
 		const loadDoc = (id) =>{
-		console.log('loaddoc running......', id)
 		docId = id
 	}
 </script>

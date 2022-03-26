@@ -21,6 +21,8 @@ export const currentDocument = writable({})  // current selected dcoument
 export const currentViews = writable({})     // Views for current document
 export const currentView = writable({})      // authenticated users view of current document
 
+// This is hardcoded it will come from superbase when the data resides there
+let mockCurrentUser = 'ur-101'
 
 export const InitUserDocuments = () =>{
      documents.update((val) => {
@@ -36,27 +38,32 @@ export const InitUserDocuments = () =>{
           return val;
      });
 }
+     
+
 export const initCurrentDocument=(docId)=>{
      // curDoc,curViews,curView
      currentDocument.update((val) => {
-          //its an array - use filter
-          console.log('docId',docId)
-          console.log('documents_mock:',documents_mock)
           val = getObjById(documents_mock, docId, 'docId');
           return val;
      });
-     // currentViews.update((val) => {
-     //      val = getObjById(val,docId, 'viewId');
-     //      return val;
-     // });
-     // currentView.update((val) => {
-     //      // user.id does not exist until fetched from database - hence lint err
-     //      // @ts-ignore
-     //      val = getObjById(val, user.id, 'userId');
-     //      return val;
-     // });
+     currentViews.update((val) => {
+          val = getObjById(views_mock,docId, 'docId');
+          return val;
+     });
+     currentView.update((val) => {
+          const curViews = getObjById(views_mock,docId, 'docId');
+          // @ts-ignore
+          val = getObjById(curViews,mockCurrentUser, 'userId');
+          return val;
+     });
 }
 export const clearStores = () =>{
+	// user.update((val) => {
+	// 	val = false;
+	// 	return val;
+	// });
+
+
      documents.update((val) => {
           val =false
           return val;

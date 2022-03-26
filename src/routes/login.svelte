@@ -8,10 +8,10 @@
 	import { updateAlert } from '../lib/functions/alerts';
 
 	export let isNewRegistration = false;
-
-	user.subscribe((value) => {
-		console.log('STORE:user:', value);
-	});
+	// view user Store ciontents
+	// user.subscribe((value) => {
+	// 	console.log('STORE:user:', value);
+	// });
 
 	//set vars
 	let email = '';

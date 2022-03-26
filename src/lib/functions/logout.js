@@ -1,4 +1,5 @@
 import { user, documents, alerts } from '../stores';
+
 import { goto } from '$app/navigation';
 
 import supabase from '$lib/db';

@@ -2,7 +2,7 @@
     
     // update alerts
 	const updateAlert = (msg, msgType) => {
-		console.log('updateAlert running.....')
+		console.log('alert: ',msg)
 		alerts.update((val) => {
 			val = { msg: msg, msgType: msgType };
 			return val;
