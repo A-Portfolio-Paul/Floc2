@@ -11,10 +11,10 @@ export const findSharedVal = (ar1, ar2) => {
 		}
 	}
 };
-
-export const getById = (arr, targetId) => {
+// get by id: ex: const arrOfObj = [{id:1,'name':'Alpha'},{id:2,'name':'Beta'}]
+export const getObjById =  (arr, id, idName ) => {
 	for (var i = 0; i < arr.length; ++i) {
-		if (arr[i] == targetId) {
+		if (arr[i][idName] == id) {
 			return arr[i];
 		}
 		return 'no match found';

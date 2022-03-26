@@ -1,11 +1,11 @@
-import { getById } from './arrayFn'
+import {  getObjById } from './arrayFn'
 
-const arrayOfObj = [{"id":1,"name":"alpha"},{"id":2,"name":"Beta"}]
+const arrOfObj = [{id:1,'name':'Alpha'},{id:2,'name':'Beta'}]
 
 
-describe('UTILS:ARRAYS:getById', () => {
+describe('UTILS:ARRAYS:getObjById', () => {
     it('', () => {
-    console.log('getById',getById(arrayOfObj,1))
+    console.log('getById',getObjById(arrOfObj,1,'id'))
       expect('').toStrictEqual('');
     });
   });

@@ -1,5 +1,6 @@
 import { writable } from "svelte/store";
 import supabase from '$lib/db';
+import { getObjById } from './functions/utilities/arrayFn'
 
 //import mock data
 import {users_mock} from './mockupData/users'
@@ -39,15 +40,17 @@ export const InitUserDocuments = () =>{
 export const initCurrentDocument=(docId)=>{
      // curDoc,curViews,curView
      currentDocument.update((val) => {
-          val = curDoc(documents,docId);
+          //its an array - use filter
+          val = getObjById(curDoc, docId, 'docId');
           return val;
      });
      currentViews.update((val) => {
-          val = curViews(views,docId)
+          val = getObjById(views,docId, 'viewId');
           return val;
      });
      currentView.update((val) => {
-          val = curView(currentViews,user.id)
+          // user.id does not exist until fetched from database - hence lint err
+          val = getObjById(currentViews, user.id, 'userId');
           return val;
      });
 }
