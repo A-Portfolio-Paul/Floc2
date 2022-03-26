@@ -12,14 +12,12 @@ export const findSharedVal = (ar1, ar2) => {
 	}
 };
 // get by id: ex: const arrOfObj = [{id:1,'name':'Alpha'},{id:2,'name':'Beta'}]
-export const getObjById =  (arr, id, idName ) => {
-	console.log('getObjById: ARGS:ARR',arr)
-	console.log('id:',id,'idName:',idName)
-	let res = []
+export const getObjById = (arr, id, idName) => {
+	let res = [];
 	for (var i = 0; i < arr.length; ++i) {
-		if (String(arr[i][idName])== String(id)) {
-			res.push(arr[i]) 
+		if (String(arr[i][idName]) == String(id)) {
+			res.push(arr[i]);
 		}
 	}
-	return res
-	}
+	return res;
+};

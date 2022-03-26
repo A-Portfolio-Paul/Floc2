@@ -1,6 +1,6 @@
 <script>
 	export let docId
-	// import Card from './Card.svelte'
+	import Card from './Card.svelte'
 	import ShowPreview from './furniture/buttons/ShowPreview.svelte'
 	import Preview from './preview/Preview.svelte'
 
@@ -9,6 +9,7 @@ import {currentDocument ,currentViews, currentView,initCurrentDocument } from '.
 
 	let colorShade = 1;
 	let preview = false
+	const  startingCardId = '1'
 
 	//Inititalize the document
 	initCurrentDocument(docId)
@@ -17,14 +18,11 @@ import {currentDocument ,currentViews, currentView,initCurrentDocument } from '.
 		console.log('STORE:currentDocument:', value);
 	});
 	currentViews.subscribe((value) => {
-		console.log('STORE:currentViews:',value)
+		console.log('STORE:currentViews:', value);
 	});
 	currentView.subscribe((value) => {
-		console.log('STORE:currentView:', value);
+		console.log('STORE:currentView:', value[0].cardMap);
 	});
-
-
-
 
 </script>
 
@@ -36,7 +34,7 @@ import {currentDocument ,currentViews, currentView,initCurrentDocument } from '.
 	{:else}
 		<div class={'p-2 rounded-md level' + colorShade}>
 			editor {docId}
-			<!-- <Card cardId = {cardId} node={$nodes[1]}  {colorShade} /> -->
+			<Card cardId = {startingCardId} node={$currentView[0].cardMap}  {colorShade} />
 		</div>
 	{/if}
 </main>
