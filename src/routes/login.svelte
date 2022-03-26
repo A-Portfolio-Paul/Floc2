@@ -33,8 +33,11 @@
 
 	const login = async () => {
 		let { user: userDetails, error } = await supabase.auth.signIn({
-			email: email,
-			password: password
+			// hardcoded to make dev easier
+			// email: email,
+			// password: password
+			email: 'timrie@theemailaddy.com',
+			password: '1234567890'
 		});
 		if (error) {
 			updateAlert(error.message, 'error');

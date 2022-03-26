@@ -1,6 +1,6 @@
 <script>
 	import DocumentsTable from './Table.svelte'
-	import Document from './document/Dcoument.svelte'
+	import Document from './document/Document.svelte'
 	// import Documents from '../docs/documents/documents.svelte'
 	import { documents, views, users } from '../../stores';
 	documents.subscribe((value) => {

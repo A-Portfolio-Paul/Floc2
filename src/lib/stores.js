@@ -7,8 +7,6 @@ import {users_mock} from './mockupData/users'
 import {documents_mock} from './mockupData/documents'
 import {views_mock} from './mockupData/views'
 // stores
-import { curDoc,curViews,curView} from './functions/stores/initializeStores'
-
 export const user = writable(supabase.auth.user() //Authenticated user from Superbase
      ||false)
 export const sess = writable('')                  //session data
@@ -42,19 +40,21 @@ export const initCurrentDocument=(docId)=>{
      // curDoc,curViews,curView
      currentDocument.update((val) => {
           //its an array - use filter
-          val = getObjById(curDoc, docId, 'docId');
+          console.log('docId',docId)
+          console.log('documents_mock:',documents_mock)
+          val = getObjById(documents_mock, docId, 'docId');
           return val;
      });
-     currentViews.update((val) => {
-          val = getObjById(views,docId, 'viewId');
-          return val;
-     });
-     currentView.update((val) => {
-          // user.id does not exist until fetched from database - hence lint err
-          // @ts-ignore
-          val = getObjById(currentViews, user.id, 'userId');
-          return val;
-     });
+     // currentViews.update((val) => {
+     //      val = getObjById(val,docId, 'viewId');
+     //      return val;
+     // });
+     // currentView.update((val) => {
+     //      // user.id does not exist until fetched from database - hence lint err
+     //      // @ts-ignore
+     //      val = getObjById(val, user.id, 'userId');
+     //      return val;
+     // });
 }
 export const clearStores = () =>{
      documents.update((val) => {

@@ -1,11 +1,20 @@
 import {  getObjById } from './arrayFn'
+import { documents_mock } from '../../mockupData/documents'
 
-const arrOfObj = [{id:1,'name':'Alpha'},{id:2,'name':'Beta'}]
+const testData=
+  {
+    docId:'doc-101',
+    createDate:'2022-03-25',
+    createdBy:'ur-101',
+    title:'Causes & Treatments for Pancreatitus'
+}
 
-
-describe('UTILS:ARRAYS:getObjById', () => {
+describe('UTILS:ARRAYS:getObjById:docs', () => {
     it('', () => {
-    console.log('getById',getObjById(arrOfObj,1,'id'))
-      expect('').toStrictEqual('');
+      console.log('docArr:',testData)
+      console.log('getById',getObjById(documents_mock,'doc-101','docId'))
+      const res = getObjById(documents_mock,'doc-101','docId')
+
+      expect(res).toStrictEqual(testData);
     });
   });
