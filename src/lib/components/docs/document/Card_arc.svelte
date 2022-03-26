@@ -156,13 +156,32 @@
 
 <article class={"w-full p-2  rounded-md flex flex-col m-1  level" +colorShade}>
 	<Header
-		cardId={cardId}
+		cardId={node.id}
 		bind:bodyVisible
 		bind:editUrl
 		{colorShade}
 		{removeRecord}
 	/>
-
+	{#if bodyVisible}
+		<Body cardId={node.id} {colorShade} />
+	{/if}
+	<!-- DROPZONE -->
+	{#if node.hasOwnProperty('items')}
+		<section
+			use:dndzone={{ items: node.items, flipDurationMs, centreDraggedOnCursor: true }}
+			on:consider={(e) => handleDndConsider(e, greet, node)}
+			on:finalize={(e) => handleDndFinalize(e, greet, node)}
+			class={dragZoneStyle}
+		>
+			<!-- WE FILTER THE SHADOW PLACEHOLDER THAT WAS ADDED IN VERSION 0.7.4, filtering this way rather than checking whether 'nodes' have the id became possible in version 0.9.1 -->
+			{#each node.items.filter((item) => item.id !== SHADOW_PLACEHOLDER_ITEM_ID) as item (item.id)}
+				<div animate:flip={{ duration: flipDurationMs }} class="item rounded-md p-1 ">
+					<svelte:self node={$currentView[0].cardMap[item.id]} colorShade={colorShade + 1} />
+				</div>
+			{/each}
+			<Add cardId={node.id} {addRecord} />
+		</section>
+	{/if}
 </article>
 
 <style>

@@ -21,7 +21,7 @@ import {currentDocument ,currentViews, currentView,initCurrentDocument } from '.
 		console.log('STORE:currentViews:', value);
 	});
 	currentView.subscribe((value) => {
-		console.log('STORE:currentView:', value[0].cardMap);
+		console.log('STORE:currentView:', value[0].cards[1].title);
 	});
 
 </script>
