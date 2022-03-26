@@ -1,4 +1,5 @@
 <script>
+	import DocumentsTable from './Table.svelte'
 	// import Documents from '../docs/documents/documents.svelte'
 	import { documents, views, users } from '../../stores';
 	documents.subscribe((value) => {
@@ -10,14 +11,15 @@
 	users.subscribe((value) => {
 		console.log('STORE:users:', value);
 	});
+	$:docId = false
 
-	const arr=[1,2,3,4]
+
 </script>
 
-<h1>Welcome to your docs</h1>
-<p>this is where the docs view goes</p>
-<ul>
-	{#each $documents as document}
-		<li>{document.docId}</li>
-	{/each}
-</ul>
+<h1 class="text-center text-xl mb-5 mt-5 uppercase">Here is your floc</h1>
+docId:{docId}
+{#if docId == false}
+<DocumentsTable bind:docId={docId}/>
+{:else}
+load doc here {docId}
+{/if}
