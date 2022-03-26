@@ -6,8 +6,8 @@ import { updateAlert } from '../functions/alerts';
 
 
 const logout = async () => {
-	let { err } = await supabase.auth.signOut();
-	if (err) {
+	let { error } = await supabase.auth.signOut();
+	if (error) {
 		updateAlert(error.message, 'error');
 	} else {
 		clearStores();

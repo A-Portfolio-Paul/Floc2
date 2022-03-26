@@ -1,9 +1,9 @@
 <script>
 	import { user } from '../../../stores';
 	import Login from './Login.svelte';
-	import Logout from './Logout.svelte';
 	import Icon from '../furniture/Icon.svelte';
-	import { logout } from '../../../functions/logout';
+	import Logout from './Logout.svelte';
+
 	
 </script>
 
@@ -50,7 +50,7 @@
 							Home
 						</a>
 						{#if $user.email}
-							<Logout {logout} />
+							<Logout  />
 						{:else}
 							<Login />
 						{/if}

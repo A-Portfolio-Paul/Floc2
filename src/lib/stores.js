@@ -2,10 +2,11 @@ import { writable } from "svelte/store";
 import supabase from '$lib/db';
 import { getObjById } from './functions/utilities/arrayFn'
 
-//import mock data
+// mock data
 import {users_mock} from './mockupData/users'
 import {documents_mock} from './mockupData/documents'
 import {views_mock} from './mockupData/views'
+// stores
 import { curDoc,curViews,curView} from './functions/stores/initializeStores'
 
 export const user = writable(supabase.auth.user() //Authenticated user from Superbase

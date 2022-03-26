@@ -1,5 +1,5 @@
 <script>
-	export let logout;
+	import { logout } from '../../../functions/logout';
 </script>
 
 <div
