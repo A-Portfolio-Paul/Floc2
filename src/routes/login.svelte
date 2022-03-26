@@ -3,7 +3,6 @@
 	import supabase from '$lib/db';
 	//Stores
 	import { user, InitUserDocuments } from '../lib/stores';
-	// import { currrentDocument, currentViews, currentView } from '../lib/stores';
 	import Register from '../lib/components/auth/register.svelte';
 	import Login from '../lib/components/auth/login.svelte';
 	import { updateAlert } from '../lib/functions/alerts';

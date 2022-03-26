@@ -51,6 +51,7 @@ export const initCurrentDocument=(docId)=>{
      });
      currentView.update((val) => {
           // user.id does not exist until fetched from database - hence lint err
+          // @ts-ignore
           val = getObjById(currentViews, user.id, 'userId');
           return val;
      });
