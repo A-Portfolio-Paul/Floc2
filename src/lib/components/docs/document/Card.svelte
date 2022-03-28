@@ -5,164 +5,75 @@
 	import Body from './Body.svelte';
 	import Add from './furniture/buttons/Add.svelte';
 
-	import { cards } from './stores/cards';
-	import { authenticatedUser } from './stores/authenticatedUser';
-	import { nodes } from './stores/nodes';
+	import { currentView } from '../document/../../../stores'
 
-	import {currentDocument ,currentViews, currentView } from '../../../stores'
-
-
-
-	export let node;
+	import {handleDndConsider, handleDndFinalize } from '../document/../../../functions/documents/dragDrop'
+	// import { nodes, handleDndConsider, handleDndFinalize } from './stores/nodes';
+	// import { addRecord } from '../../../functions/documents/add';
+	// import { removeRecord } from '../../../functions/documents/remove';
+	export let card;
 	export let colorShade;
-	export let cardId
 
-
-
-	// I would like to move all these functions into cardLayout store but cant figure out how to get the args to carry up to date data
-	// Functions work "in place"
-
-	const handleDndConsider = (e, greet) => {
-		//if I put node into the arg it goes horribly wrong so I will leave it for now
-		console.log('handleDndConsider:  e.detail.items', e.detail.items, greet);
-		node.items = e.detail.items;
-	};
-	const handleDndFinalize = (e, greet, node) => {
-		console.log('handleDndConsider:  e.node.items', node.items, greet);
-		nodes.update((val) => {
-			val[node.id].items = e.detail.items;
-			return val;
-		});
+	// See  handleDndConsider, handleDndFinalize to update node
+	const changeState = (newItem) => {
+		card.items = newItem;
 	};
 
-	const removeRecord = (cardId) => {
-		const getParentId = (childId) => {
-			const findId = (id, myarr) => {
-				let res;
-				for (let i = 0; i < myarr.length; i++) {
-					if (myarr[i].id == id) return true;
-				}
-				return false;
-			};
-			for (const key in $currentView[0].cardMap) {
-				let nodeArr = $currentView[0].cardMap[key].items;
-				if (findId(childId, nodeArr) == true) {
-					return key;
-				}
-			}
-		};
-		const parentId = getParentId(cardId);
-		console.log('parentId', parentId);
-		// alert('no more alerts')
-		console.log('remove Record running....cardId:', cardId);
-		// 1. remove card from items
-
-		const items = $currentView[0].cardMap[parentId].items;
-		const getIndex = () => {
-			for (let i = 0; i < items.length; i++) {
-				console.log('LOOP:', items[i]);
-				if (items[i].id == cardId) {
-					return i;
-				}
-			}
-		};
-		const cardIndex = getIndex(cardId);
-		nodes.update((val) => {
-			val[parentId].items.splice(cardIndex, 1);
-			return val;
-		});
-		//2. remove card from nodes
-		nodes.update((val) => {
-			val[cardId].items.splice(cardIndex, 1);
-			return val;
-		});
-	};
-	const addRecord = (cardId) => {
-		console.log('add record running.........', cardId);
-		// 1. Create new id {using the bottom id - this will have to use newId later}
-		const newId = $currentView[0].cardMap[Object.keys($currentView[0].cardMap)[Object.keys($currentView[0].cardMap).length - 1]].id + 1;
-		console.log('newId', newId);
-
-		// 2. Add newRecord
-		// to item array
-		nodes.update((val) => {
-			val[cardId].items.push({ id: newId });
-			return val;
-		});
-		// $currentView[0].cardMap[cardId].items.push({ id: newId });
-
-		//to $currentView[0].cardMap
-		const newNode = { id: newId, items: [],cols:false };
-		nodes.update((val) => {
-			val = { ...val, [newId]: newNode };
-			return val;
-		});
-		// $currentView[0].cardMap = { ...nodes, [newId]: newNode };
-
-		// 3. Add new card to cards
-		const newItem = { id: newId, items: [], cols: false };
-		const newCard = {
-			componentId: newId,
-			url: null,
-			imageUrl:null,
-			allTags: [],
-			notes:null,
-			usersVersion: {
-				userId: { userId: $authenticatedUser.userId, versionId: 1 }
-			},
-			versions: {
-				1: {
-					title: '',
-					imageUrl: '',
-		
-				}
-			}
-		};
-
-
-
-		console.log('newCard', newCard)
-		cards.update((val) => {
-			val = { ...val, [newId]: newCard };
-			return val;
-		});
-	};
 	//FORMATTING / CONFIG
 
 	let bodyVisible = false;
 	let editUrl = false;
-
+	const cardId = $currentView[0].cardId
 	const flipDurationMs = 300;
+	const addRecord = () =>{
+		console.log('addRecords runnning...')
+	}
+	const removeRecord = () =>{
+		console.log('remove runnning...')
+	}
 
-	// const toggleCols = () => {
-	// 	console.log('toggleCols Running..');
-	// 	console.log('b', node.cols);
-	// 	node.cols = !node.cols;
-	// 	console.log('a', node.cols);
-	// 	node = { ...node };
-	// };
+
 	const toggleCols = () => {
 		nodes.update((val) => {
-			val[node.id].cols = !val[node.id].cols
-			console.log('val',val,node.id)
+			val[card.id].cols = !val[card.id].cols;
+			console.log('val', val, card.id);
 
 			return val;
-			
 		});
 	};
-	const greet = 'placeholder for the consider & finalize functions' 
-
+	$: dragZoneStyle = $currentView[0].cardMap[card.id].cols
+		? 'w-full p-1  rounded-t-md flex flex-row level' + colorShade
+		: 'w-full p-1  rounded-t-md flex flex-col level' + colorShade;
 </script>
 
-<article class={"w-full p-2  rounded-md flex flex-col m-1  level" +colorShade}>
+<article class={'w-full p-2  rounded-md flex flex-col m-1  level' + colorShade}>
 	<Header
-		cardId={cardId}
+		cardId={card.id}
 		bind:bodyVisible
 		bind:editUrl
 		{colorShade}
 		{removeRecord}
 	/>
-
+	{#if bodyVisible}
+		<Body cardId={card.id} {colorShade} />
+	{/if}
+	<!-- DROPZONE -->
+	{#if card.hasOwnProperty('items')}
+		<section
+			use:dndzone={{ items: card.items, flipDurationMs, centreDraggedOnCursor: true }}
+			on:consider={(e) => handleDndConsider(e, changeState)}
+			on:finalize={(e) => handleDndFinalize(e,cardId)}
+			class={dragZoneStyle}
+		>
+			<!-- WE FILTER THE SHADOW PLACEHOLDER THAT WAS ADDED IN VERSION 0.7.4, filtering this way rather than checking whether 'cards' have the id became possible in version 0.9.1 -->
+			{#each card.items.filter((item) => item.id !== SHADOW_PLACEHOLDER_ITEM_ID) as item (item.id)}
+				<div animate:flip={{ duration: flipDurationMs }} class="item rounded-md p-1 ">
+					<svelte:self card={$currentView[0].cardMap[item.id]} colorShade={colorShade + 1} />
+				</div>
+			{/each}
+			<Add cardId={card.id} {addRecord} />
+		</section>
+	{/if}
 </article>
 
 <style>
@@ -173,7 +84,7 @@
 		overflow-y: auto;
 		height: auto;
 	}
-	article{
+	article {
 		min-width: 300px;
 	}
 </style>
