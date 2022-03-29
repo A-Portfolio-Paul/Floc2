@@ -3,12 +3,14 @@ import supabase from '$lib/db';
 import { getObjById } from './functions/utilities/arrayFn'
 
 // mock data
+import { auth_user_mock } from './mockupData/authUser'
 import {users_mock} from './mockupData/users'
 import {documents_mock} from './mockupData/documents'
 import {views_mock} from './mockupData/views'
 // stores
 export const user = writable(supabase.auth.user() //Authenticated user from Superbase
      ||false)
+export const user_mock = writable({})        // used for docs (will replace when db integration complete)
 export const sess = writable('')                  //session data
 export const alerts = writable({})                //alerts
 
@@ -25,6 +27,10 @@ export const currentView = writable()      // authenticated users view of curren
 let mockCurrentUser = 'ur-101'
 
 export const InitUserDocuments = () =>{
+     user_mock.update((val) => {
+          val = auth_user_mock;
+          return val;
+     });
      documents.update((val) => {
           val = documents_mock;
           return val;
@@ -66,7 +72,7 @@ export const clearStores = () =>{
 	// 	return val;
 	// });
 
-
+     //auth_user_mock is not cleared as it is hardcoded and indpendent of login
      documents.update((val) => {
           val =false
           return val;
