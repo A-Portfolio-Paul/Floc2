@@ -20,9 +20,9 @@
 	<div class="flex flex-row items-center ">
 		<Fa class=" text-blue-200 align-bottom cursor-move text-xs" icon={faGripVertical} />
 		{#if editUrl == false}
-			<Input bind:inputText={$currentView[0].cards[1].title} inputPlaceholder="Enter title" {colorShade} />
+			<Input bind:inputText={$currentView.cards[cardId].title} inputPlaceholder="Enter title" {colorShade} />
 		{:else}
-			<Input bind:inputText={$currentView[0].cards[1].url} inputPlaceholder="Enter url" {colorShade} />
+			<Input bind:inputText={$currentView.cards[cardId].url} inputPlaceholder="Enter url" {colorShade} />
 		{/if}
 	</div>
 

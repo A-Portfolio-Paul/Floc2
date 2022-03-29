@@ -23,7 +23,7 @@
 
 	let bodyVisible = false;
 	let editUrl = false;
-	const cardId = $currentView[0].cardId
+	const cardId = card.cardId
 	const flipDurationMs = 300;
 	const addRecord = () =>{
 		console.log('addRecords runnning...')
@@ -32,16 +32,7 @@
 		console.log('remove runnning...')
 	}
 
-
-	const toggleCols = () => {
-		nodes.update((val) => {
-			val[card.id].cols = !val[card.id].cols;
-			console.log('val', val, card.id);
-
-			return val;
-		});
-	};
-	$: dragZoneStyle = $currentView[0].cardMap[card.id].cols
+	$: dragZoneStyle = $currentView.cardMap[card.id].cols
 		? 'w-full p-1  rounded-t-md flex flex-row level' + colorShade
 		: 'w-full p-1  rounded-t-md flex flex-col level' + colorShade;
 </script>
@@ -68,7 +59,7 @@
 			<!-- WE FILTER THE SHADOW PLACEHOLDER THAT WAS ADDED IN VERSION 0.7.4, filtering this way rather than checking whether 'cards' have the id became possible in version 0.9.1 -->
 			{#each card.items.filter((item) => item.id !== SHADOW_PLACEHOLDER_ITEM_ID) as item (item.id)}
 				<div animate:flip={{ duration: flipDurationMs }} class="item rounded-md p-1 ">
-					<svelte:self card={$currentView[0].cardMap[item.id]} colorShade={colorShade + 1} />
+					<svelte:self card={$currentView.cardMap[item.id]} colorShade={colorShade + 1} />
 				</div>
 			{/each}
 			<Add cardId={card.id} {addRecord} />

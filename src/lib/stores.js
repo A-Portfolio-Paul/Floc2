@@ -19,7 +19,7 @@ export const users = writable({})            // all users that conrributed to us
 
 export const currentDocument = writable({})  // current selected dcoument
 export const currentViews = writable({})     // Views for current document
-export const currentView = writable({})      // authenticated users view of current document
+export const currentView = writable()      // authenticated users view of current document
 
 // This is hardcoded it will come from superbase when the data resides there
 let mockCurrentUser = 'ur-101'
@@ -52,8 +52,9 @@ export const initCurrentDocument=(docId)=>{
      });
      currentView.update((val) => {
           const curViews = getObjById(views_mock,docId, 'docId');
-          // @ts-ignore
-          val = getObjById(curViews,mockCurrentUser, 'userId');
+          // take obkect out of array
+          const valArr = getObjById(curViews,mockCurrentUser, 'userId');
+          val = valArr[0]
           return val;
      });
 }

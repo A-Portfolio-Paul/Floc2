@@ -26,7 +26,7 @@
 		console.log('STORE:currentViews:', value);
 	});
 	currentView.subscribe((value) => {
-		console.log('STORE:currentView:', value[0].cards[1].title);
+		console.log('STORE:currentView:', $currentView.cardMap[1])
 	});
 </script>
 
@@ -37,7 +37,7 @@
 		preview {docId}
 	{:else}
 		<div class={'p-2 rounded-md level' + colorShade}>
-			<Card  card={$currentView[0].cardMap[1]} {colorShade} />
+			<Card  card={$currentView.cardMap[1]} {colorShade} />
 		</div>
 	{/if}
 </main>
