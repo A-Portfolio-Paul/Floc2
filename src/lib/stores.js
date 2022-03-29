@@ -54,6 +54,8 @@ export const initCurrentDocument=(docId)=>{
           const curViews = getObjById(views_mock,docId, 'docId');
           // take obkect out of array
           const valArr = getObjById(curViews,mockCurrentUser, 'userId');
+          // console.log('curViews',curViews)
+          // console.log('valArr',valArr)
           val = valArr[0]
           return val;
      });

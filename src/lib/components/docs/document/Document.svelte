@@ -26,7 +26,7 @@
 		console.log('STORE:currentViews:', value);
 	});
 	currentView.subscribe((value) => {
-		console.log('STORE:currentView:', $currentView.cardMap[1])
+		console.log('STORE:currentView:', $currentView)
 	});
 </script>
 

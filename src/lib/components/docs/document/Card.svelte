@@ -53,7 +53,7 @@
 		<section
 			use:dndzone={{ items: card.items, flipDurationMs, centreDraggedOnCursor: true }}
 			on:consider={(e) => handleDndConsider(e, changeState)}
-			on:finalize={(e) => handleDndFinalize(e,cardId)}
+			on:finalize={(e) => handleDndFinalize(e,card.id)}
 			class={dragZoneStyle}
 		>
 			<!-- WE FILTER THE SHADOW PLACEHOLDER THAT WAS ADDED IN VERSION 0.7.4, filtering this way rather than checking whether 'cards' have the id became possible in version 0.9.1 -->
