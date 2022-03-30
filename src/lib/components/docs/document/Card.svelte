@@ -17,14 +17,11 @@
 	const changeState = (newItem) => {
 		card.items = newItem;
 	};
-
 	//FORMATTING / CONFIG
-
 	let bodyVisible = false;
 	let editUrl = false;
 	const cardId = card.cardId
 	const flipDurationMs = 300;
-
 
 	$: dragZoneStyle = $currentView.cardMap[card.id].cols
 		? 'w-full p-1  rounded-t-md flex flex-row level' + colorShade

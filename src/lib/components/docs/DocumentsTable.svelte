@@ -1,6 +1,6 @@
 <script>
 		import { documents} from '../../stores';
-		import ToolbarDocuments from './document/furniture/buttons/ToolbarDocuments.svelte'
+		import ToolbarDocuments from './document/furniture/buttons/document/ToolbarDocuments.svelte'
 
 		export let docId 
 
@@ -59,7 +59,7 @@
 									>{document.title}</td
 								>
 								<td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-									<a href="#" class="text-blue-600 dark:text-blue-800 hover:underline">Edit</a>
+									<ToolbarDocuments docId={document.docId}/>
 								</td>
 							</tr>
 						</tbody>

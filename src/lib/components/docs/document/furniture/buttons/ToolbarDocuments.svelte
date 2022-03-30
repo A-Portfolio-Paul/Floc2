@@ -1,7 +1,0 @@
-<script>
-
-</script>
-
-<div class="flex flex-row">
-    
-</div>

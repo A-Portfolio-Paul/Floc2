@@ -2,10 +2,8 @@
 	export let docId;
 	import Card from './Card.svelte';
 	import ShowPreview from './furniture/buttons/document/ShowPreview.svelte';
-	import ExitDocument from './furniture/buttons/document/exitDocument.svelte'
+	import ExitDocument from './furniture/buttons/document/ExitDocument.svelte'
 	import Preview from './preview/Preview.svelte';
-
-
 	import {
 		currentDocument,
 		currentViews,
