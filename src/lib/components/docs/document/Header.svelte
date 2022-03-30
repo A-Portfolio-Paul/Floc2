@@ -9,7 +9,7 @@
 	import Fa from 'svelte-fa';
 	import { faGripVertical } from '@fortawesome/free-solid-svg-icons';
 	import Input from './furniture/Input.svelte';
-	import Toolbar from './furniture/buttons/Toolbar.svelte';
+	import Toolbar from './furniture/buttons/card/Toolbar.svelte';
 
 </script>
 

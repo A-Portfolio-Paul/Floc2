@@ -1,8 +1,8 @@
 <script>
 	export let docId;
 	import Card from './Card.svelte';
-	import ShowPreview from './furniture/buttons/ShowPreview.svelte';
-	import ExitDocument from '../document/furniture/buttons/exitDocument.svelte'
+	import ShowPreview from './furniture/buttons/document/ShowPreview.svelte';
+	import ExitDocument from './furniture/buttons/document/exitDocument.svelte'
 	import Preview from './preview/Preview.svelte';
 
 

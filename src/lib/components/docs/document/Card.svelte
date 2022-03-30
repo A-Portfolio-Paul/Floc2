@@ -3,7 +3,7 @@
 	import { dndzone, SHADOW_PLACEHOLDER_ITEM_ID } from 'svelte-dnd-action';
 	import Header from './Header.svelte';
 	import Body from './Body.svelte';
-	import Add from './furniture/buttons/Add.svelte';
+	import Add from './furniture/buttons/card/Add.svelte';
 
 	import { currentView } from '../document/../../../stores'
 

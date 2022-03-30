@@ -1,5 +1,7 @@
 <script>
 		import { documents} from '../../stores';
+		import ToolbarDocuments from './document/furniture/buttons/ToolbarDocuments.svelte'
+
 		export let docId 
 
 		const loadDoc = (id) =>{

@@ -1,8 +1,6 @@
 <script>
-	import DocumentsTable from './Table.svelte'
+	import DocumentsTable from './DocumentsTable.svelte'
 	import Document from './document/Document.svelte'
-	// import Documents from '../docs/documents/documents.svelte'
-
 	$:docId = false
 
 
