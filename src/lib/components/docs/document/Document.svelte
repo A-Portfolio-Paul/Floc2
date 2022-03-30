@@ -2,7 +2,9 @@
 	export let docId;
 	import Card from './Card.svelte';
 	import ShowPreview from './furniture/buttons/ShowPreview.svelte';
+	import ExitDocument from '../document/furniture/buttons/exitDocument.svelte'
 	import Preview from './preview/Preview.svelte';
+
 
 	import {
 		currentDocument,
@@ -28,15 +30,20 @@
 	currentView.subscribe((value) => {
 		console.log('STORE:currentView:', value.cardMap)
 	});
+
 </script>
 
 <main id="pauls" label="myMain" class=" p-3">
-	<ShowPreview bind:preview />
+	<div class="flex flex-row justify-between ">
+		<ExitDocument bind:docId={docId}/>
+		<ShowPreview bind:preview />
+	</div>
 	{#if preview == true}
 		<!-- <Preview {cardId} {colorShade} node={$nodes[1]}/> -->
 		preview {docId}
 	{:else}
-		<div class={'p-2 rounded-md level' + colorShade}>
+	<div class={'p-2 rounded-md level' + colorShade}>
+			
 			<Card  card={$currentView.cardMap[1]} {colorShade} />
 		</div>
 	{/if}

@@ -15,5 +15,5 @@
 {#if docId == false}
 <DocumentsTable bind:docId={docId}/>
 {:else}
-<Document {docId}/>
+<Document bind:docId={docId}/>
 {/if}
