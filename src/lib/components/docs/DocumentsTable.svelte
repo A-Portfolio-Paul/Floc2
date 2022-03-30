@@ -1,6 +1,7 @@
 <script>
 		import { documents} from '../../stores';
 		import ToolbarDocuments from './document/furniture/buttons/document/ToolbarDocuments.svelte'
+		import AddDocument from './document/furniture/buttons/document/AddDocument.svelte';
 
 		export let docId 
 
@@ -11,6 +12,7 @@
 
 <!-- This is an example component -->
 <div class="max-w-2xl mx-auto">
+	<AddDocument/>
 	<div class="flex flex-col">
 		<div class="overflow-x-auto shadow-md sm:rounded-lg">
 			<div class="inline-block min-w-full align-middle">
@@ -67,6 +69,7 @@
 					</table>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
