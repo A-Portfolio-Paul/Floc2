@@ -3,17 +3,13 @@
 	export let bodyVisible;
 	export let editUrl;
 	export let colorShade;
-	export let removeRecord;
 
 	import { cards } from './stores/cards';
 	import {currentView } from '../../../stores'
-
-
 	import Fa from 'svelte-fa';
 	import { faGripVertical } from '@fortawesome/free-solid-svg-icons';
-
 	import Input from './furniture/Input.svelte';
-	// import Toolbar from './furniture/buttons/Toolbar.svelte';
+	import Toolbar from './furniture/buttons/Toolbar.svelte';
 
 </script>
 
@@ -27,7 +23,7 @@
 		{/if}
 	</div>
 
-	<!-- <Toolbar bind:bodyVisible bind:editUrl {cardId} {removeRecord}  /> -->
+	<Toolbar bind:bodyVisible bind:editUrl {cardId}   />
 </div>
 
 <style>

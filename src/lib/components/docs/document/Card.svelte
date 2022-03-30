@@ -10,7 +10,6 @@
 	import {handleDndConsider, handleDndFinalize } from '../document/../../../functions/documents/dragDrop'
 	// import { nodes, handleDndConsider, handleDndFinalize } from './stores/nodes';
 	import { addRecord } from '../../../functions/documents/add';
-	// import { removeRecord } from '../../../functions/documents/remove';
 	export let card;
 	export let colorShade;
 
@@ -25,12 +24,7 @@
 	let editUrl = false;
 	const cardId = card.cardId
 	const flipDurationMs = 300;
-	// const addRecord = () =>{
-	// 	console.log('addRecords runnning...')
-	// }
-	const removeRecord = () =>{
-		console.log('remove runnning...')
-	}
+
 
 	$: dragZoneStyle = $currentView.cardMap[card.id].cols
 		? 'w-full p-1  rounded-t-md flex flex-row level' + colorShade
@@ -43,7 +37,6 @@
 		bind:bodyVisible
 		bind:editUrl
 		{colorShade}
-		{removeRecord}
 	/>
 	{#if bodyVisible}
 		<Body cardId={card.id} {colorShade} />

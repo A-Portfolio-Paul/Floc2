@@ -1,10 +1,10 @@
 <script>
 	export let cardId;
-	export let removeRecord;
 	import Fa from 'svelte-fa';
 	import { faTrash } from '@fortawesome/free-solid-svg-icons';
 	import { Confirm } from 'svelte-confirm';
 	import { slide } from 'svelte/transition';
+	import { removeRecord } from '../../../../../functions/documents/remove'
 </script>
 
 <Confirm
@@ -22,8 +22,6 @@
 </Confirm>
 
 <style>
-
-
 
 button:hover{
         transform: rotate(30deg); /* Equal to rotateZ(45deg) */
