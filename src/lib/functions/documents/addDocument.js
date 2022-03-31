@@ -16,18 +16,19 @@ export const addDocument = () => {
 	const newDoc = {
 		docId: 'doc-' + uuidv4(),
 		createDate: new Date(),
-		createdBy: auth_user_mock.userId,
+		createdBy: userId,
 		title: 'New Document'
 	};
 	documents.update((value) => {
 		value.push(newDoc);
+        console.log('FINAL:documents',value)
 		return value;
 	});
 	console.log('say Hi');
 	views.update((value) => {
 		const nwView = newView(userId, newDoc.docId);
-		console.log('nwView', nwView);
 		value.push(nwView);
+        console.log('FINAL:views',value)
 		return value;
 	});
 };

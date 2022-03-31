@@ -14,7 +14,7 @@ export const newView = (userId: string, docId: string) => {
 			1: {
 				cardId: 1,
 				tags: ['lesiure', 'sport', 'machines'],
-				title: 'Document Title',
+				title: 'New Document',
 				imageUrl: '',
 				notes: ''
 			}
