@@ -12,6 +12,13 @@ export const user = writable(
 	supabase.auth.user() || //Authenticated user from Superbase
 		false
 );
+
+// let { data: documents, error } = await supabase
+// //get usre
+// .from('documents')
+// .select("*")
+// .eq('createdBy', '')
+
 export const user_mock = writable({}); // used for docs (will replace when db integration complete)
 export const sess = writable(''); //session data
 export const alerts = writable({}); //alerts
