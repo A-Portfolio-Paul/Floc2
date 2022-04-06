@@ -22,7 +22,7 @@ export const view2 = () => {
 			1: {
 				cardId: 1,
 				tags: ['lesiure', 'sport', 'machines'],
-				title: 'Which Bicycle Should I Buy user 2',
+				title: 'Which Bike?',
 				imageUrl:
 					'https://www.cyclingabout.com/wp-content/uploads/2014/01/wpid-Photo-29-Jan-2014-214-pm.jpg',
 				notes: `If you’re in the market for a new bicycle, you’re in very good company. Since the start of 2020 all bike sales have risen by more than 50 percent, and even if you’re reading this guide in 2023, and perhaps sales have finally flattened, that will be at a new, higher bar. 
@@ -35,7 +35,7 @@ export const view2 = () => {
 				cardId: 2,
 				url: 'https://en.wikipedia.org/wiki/Road_bicycle',
 				allTags: ['road', 'sport'],
-				title: 'Road Bikes u2',
+				title: 'Road Bikes',
 				imageUrl: 'https://cdn.mos.cms.futurecdn.net/dpA5bpmPcBM6rPszKB9SpH-1200-80.jpg',
 				notes:
 					'A racing bicycle, also known as a road bike, and once popularly known as a ten speed, is a bicycle designed for competitive road cycling, a sport governed by and according to the rules of the Union Cycliste Internationale (UCI). The UCI rules were altered in 1934 to exclude recumbent bicycles.The most important characteristics about a racing bicycle are its weight and stiffness[citation needed] which determine the efficiency at which the power from a riders pedal strokes can be transferred to the drive-train and subsequently to its wheels. To this effect racing bicycles may sacrifice comfort for speed. The drop handlebars are positioned lower than the saddle in order to put the rider in a more aerodynamic posture. The front and back wheels are close together so the bicycle has quick handling. The derailleur gear ratios are closely spaced so that the rider can pedal at their optimum cadence. Other racing bicycles, especially those used in time trialling, prioritize aerodynamics over comfort. '
@@ -44,7 +44,7 @@ export const view2 = () => {
 				cardId: 3,
 				url: 'https://en.wikipedia.org/wiki/Mountain_biking',
 				allTags: ['road', 'sport'],
-				title: 'Tricycle u2',
+				title: 'Tricycle ',
 				imageUrl:
 					'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/MtnBiking_SedonaMag.jpg/250px-MtnBiking_SedonaMag.jpg',
 				notes: 'Mountain bikeing is more fun and very dangerous, and soo exckting!'

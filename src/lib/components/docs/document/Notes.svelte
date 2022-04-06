@@ -9,7 +9,7 @@
     
 </script>
 <div class={$cards[cardId].notes ? " pb-1 rounded-md max-w-6xl" : " pb-1 rounded-md max-w-6xl bg-blue-200 "} >
-  <pre  class="textarea text-blue-400  hover:text-blue-600 rounded w-full flex-grow" placeholder="Enter Notes"  role="textbox" contenteditable bind:innerHTML={$cards[cardId].notes}></pre>
+  <pre  class="textarea text-blue-200  hover:text-blue-300 rounded w-full flex-grow" placeholder="Enter Notes"  role="textbox" contenteditable bind:innerHTML={$cards[cardId].notes}></pre>
 </div>
 
 <style>
