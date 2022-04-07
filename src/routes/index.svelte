@@ -8,7 +8,7 @@
 	import Folders from '../lib/components/wiki/Folders.svelte';
 
 	//use this to see a view of all my folders
-	let wiki = false;
+	let wiki = true;
 	onMount(async () => {
 		getSession();
 	});
