@@ -1,6 +1,6 @@
 <script></script>
 
-<div class="p-20 flex flex-row">
+<div class="p-2 flex flex-row">
 	<article>
 		<h1>Current folders</h1>
 		<ul>
@@ -9,7 +9,6 @@
 			<li>
 				src
 				<ul>
-					<li>data</li>
 					<li>
 						lib
 						<ul>
@@ -19,7 +18,7 @@
 									<li>auth</li>
 									<li>docs</li>
 									<ul>
-										<li>myDocuments</li>
+										<li>document</li>
 										<ul>
 											<li>
 												document
@@ -34,21 +33,38 @@
 												</ul>
 											</li>
 										</ul>
-										<li>todo</li>
 									</ul>
-									<li>layout</li>
+									<li>layout
+										<ul>
+											<li>furniture</li>
+											<li>navbar</li>
+											<li>notifications</li>
+										</ul>
+									</li>
 									<li>pages</li>
+									<li>wiki</li>
 								</ul>
 							</li>
-							<li>functions</li>
-							<li>wiki</li>
+							<li>Data (obsolete)</li>
+							<li >functions
+								<ul>
+									<li>documents</li>
+									<li>utilities</li>
+								</ul>
+							</li>
+							<li>MockupData</li>
 						</ul>
 					</li>
 					<li>routes</li>
+					<li>static</li>
 				</ul>
 			</li>
 		</ul>
 	</article>
+
+
+<!-- 
+
 	<article>
 		<h1>New folders</h1>
 		<ul>
@@ -94,7 +110,7 @@
 				</ul>
 			</li>
 		</ul>
-	</article>
+	</article> -->
 </div>
 
 <style>
@@ -131,4 +147,7 @@
 		width: 600px;
 		margin: 2px;
 	}
+.bold{
+	background:red;
+}
 </style>
