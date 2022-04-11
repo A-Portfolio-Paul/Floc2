@@ -1,7 +1,7 @@
 <script>
     export let cardId
-    import {cards} from './stores/cards'
-    $:allTags = $cards[cardId].allTags
+    import {currentView} from '../../../utils/stores'
+    $:allTags = $currentView.cards[cardId].tags
 </script>
 <div class="flex flex-row content-center">
 {#each   allTags as tag}

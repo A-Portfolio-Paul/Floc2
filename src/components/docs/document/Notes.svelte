@@ -3,12 +3,12 @@
     export let cardId
     export let colorShade
     export let editable
-    import {cards} from './stores/cards'
+    import {currentView} from '../../../utils/stores'
 
     const newShade = colorShade +1
     
 </script>
-<div class={$cards[cardId].notes ? " pb-1 rounded-md max-w-6xl" : " pb-1 rounded-md max-w-6xl bg-blue-200 "} >
+<div class={$currentView.cards[cardId].notes ? " pb-1 rounded-md max-w-6xl" : " pb-1 rounded-md max-w-6xl bg-blue-200 "} >
   <pre  class="textarea text-blue-400  hover:text-blue-600 rounded w-full flex-grow" placeholder="Enter Notes"  role="textbox" contenteditable bind:innerHTML={$cards[cardId].notes}></pre>
 </div>
 

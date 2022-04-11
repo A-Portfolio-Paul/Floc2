@@ -4,7 +4,6 @@
 	export let editUrl;
 	export let colorShade;
 
-	import { cards } from './stores/cards';
 	import {currentView } from '../../../utils/stores.js'
 	import Fa from 'svelte-fa';
 	import { faGripVertical } from '@fortawesome/free-solid-svg-icons';

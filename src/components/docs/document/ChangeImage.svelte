@@ -2,12 +2,12 @@
     export let colorShade
     export let cardId
     import Input from './furniture/Input.svelte'
-    import {cards} from './stores/cards'
+    import {currentView} from '../../../utils/stores'
     let newUrl = ''
     
     const addNewUrl = (newUrl,cardId) =>{
-        cards.update((val) => {
-			val[cardId].imageUrl =newUrl
+        currentView.update((val) => {
+			val.cards[cardId].imageUrl =newUrl
 			return val;
 		});
     }
