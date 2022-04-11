@@ -5,11 +5,11 @@
 	import Body from './Body.svelte';
 	import Add from './furniture/buttons/card/Add.svelte';
 
-	import { currentView } from '../document/../../../stores'
+	import { currentView } from '../../../utils/stores.js'
 
-	import {handleDndConsider, handleDndFinalize } from '../document/../../../functions/documents/dragDrop'
+	import {handleDndConsider, handleDndFinalize } from '../../../utils/functions/documents/dragDrop.js'
 	// import { nodes, handleDndConsider, handleDndFinalize } from './stores/nodes';
-	import { addRecord } from '../../../functions/documents/add';
+	import { addRecord } from '../../../utils/functions/documents/add.js';
 	export let card;
 	export let colorShade;
 

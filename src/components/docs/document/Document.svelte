@@ -9,7 +9,7 @@
 		currentViews,
 		currentView,
 		initCurrentDocument
-	} from '../document/../../../stores';
+	} from '../../../utils/stores.js';
 
 	let colorShade = 1;
 	let preview = false;

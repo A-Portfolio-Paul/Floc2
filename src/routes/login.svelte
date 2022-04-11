@@ -1,11 +1,11 @@
 <script>
 	import { goto } from '$app/navigation';
-	import supabase from '$lib/db';
+	import supabase from '../lib/db';
 	//Stores
-	import { user, InitUserDocuments } from '../lib/stores';
-	import Register from '../lib/components/auth/register.svelte';
-	import Login from '../lib/components/auth/login.svelte';
-	import { updateAlert } from '../lib/functions/alerts';
+	import { user, InitUserDocuments } from '../utils/stores.js';
+	import Register from '../components/auth/register.svelte';
+	import Login from '../components/auth/login.svelte';
+	import { updateAlert } from '../utils/functions/alerts';
 
 	export let isNewRegistration = false;
 	// view user Store ciontents
@@ -23,7 +23,7 @@
 			password: password
 		});
 		if (error) {
-			console.log('error', error);
+			console.log('error in signup', error);
 		} else {
 			updateAlert('Please check your email', 'notify');
 			$user = userDetails;
@@ -45,7 +45,7 @@
 		} else {
 			updateAlert('Login successful', 'notify');
 			$user = userDetails;
-			InitUserDocuments()
+			InitUserDocuments();
 			await goto('/');
 		}
 	};

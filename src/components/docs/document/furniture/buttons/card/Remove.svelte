@@ -4,7 +4,7 @@
 	import { faTrash } from '@fortawesome/free-solid-svg-icons';
 	import { Confirm } from 'svelte-confirm';
 	import { slide } from 'svelte/transition';
-	import { removeRecord } from '../../../../../../functions/documents/remove'
+	import { removeRecord } from '../../../../../../utils/functions/documents/remove.js'
 </script>
 
 <Confirm

@@ -1,5 +1,5 @@
 <script>
-	import { user } from '../../../stores';
+	import { user } from '../../../utils/stores.js';
 	import Login from './Login.svelte';
 	import Icon from '../furniture/Icon.svelte';
 	import Logout from './Logout.svelte';

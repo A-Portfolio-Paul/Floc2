@@ -1,5 +1,5 @@
 <script>
-		import { documents} from '../../stores';
+		import { documents} from '../../utils/stores.js';
 		import ToolbarDocuments from './document/furniture/buttons/document/ToolbarDocuments.svelte'
 		import AddDocument from './document/furniture/buttons/document/AddDocument.svelte';
 

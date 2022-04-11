@@ -1,7 +1,7 @@
 <script>
 	import Fa from 'svelte-fa';
 	import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-    import {addDocument} from '../../../../../../functions/documents/addDocument'
+    import {addDocument} from '../../../../../../utils/functions/documents/addDocument.js'
 </script>
 
 <div class=" flex flex-row flex-end justify-end pl-3 pb-6">

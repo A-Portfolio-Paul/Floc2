@@ -1,15 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
-	import supabase from '$lib/db';
-	import { user, sess } from '../lib/stores';
+	import supabase from '../lib/db';
+	import { user, sess } from '../utils/stores.js';
 	import { goto } from '$app/navigation';
-	import Home from '../lib/components/pages/home.svelte';
-	import Documents from '../lib/components/docs/Documents.svelte';
-	import Folders from '../lib/components/wiki/Folders.svelte';
+	import Home from '../components/pages/home.svelte';
+	import Documents from '../components/docs/Documents.svelte';
+	import Folders from '../components/wiki/Folders.svelte';
 
 	//use this to see a view of all my folders
 	let wiki = false;
 	onMount(async () => {
+		console.log('onMount running..')
 		getSession();
 	});
 

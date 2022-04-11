@@ -1,5 +1,5 @@
 <script>
-    import { removeRecord } from '../../../../../../functions/documents/remove';
+    import { removeRecord } from '../../../../../../utils/functions/documents/remove.js';
 
     export let bodyVisible 
     export let editUrl

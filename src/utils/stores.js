@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import supabase from '$lib/db';
+import supabase from '../lib/db';
 import { getObjById } from './functions/utilities/arrayFn';
 
 // mock data

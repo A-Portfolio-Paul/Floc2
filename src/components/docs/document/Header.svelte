@@ -5,7 +5,7 @@
 	export let colorShade;
 
 	import { cards } from './stores/cards';
-	import {currentView } from '../../../stores'
+	import {currentView } from '../../../utils/stores.js'
 	import Fa from 'svelte-fa';
 	import { faGripVertical } from '@fortawesome/free-solid-svg-icons';
 	import Input from './furniture/Input.svelte';
