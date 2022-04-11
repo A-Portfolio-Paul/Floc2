@@ -11,7 +11,7 @@
 </script>
 
 <!-- This is an example component -->
-<div class="max-w-2xl mx-auto">
+
 	<AddDocument/>
 	<div class="flex flex-col">
 		<div class="overflow-x-auto shadow-md sm:rounded-lg">
@@ -72,4 +72,4 @@
 
 		</div>
 	</div>
-</div>
+
