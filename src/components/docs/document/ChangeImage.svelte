@@ -2,7 +2,7 @@
     export let colorShade
     export let cardId
     import Input from './furniture/Input.svelte'
-    import {currentView} from '../../../utils/stores'
+    import {currentView} from '../../../utils/stores.js'
     let newUrl = ''
     
     const addNewUrl = (newUrl,cardId) =>{

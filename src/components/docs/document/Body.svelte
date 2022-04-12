@@ -4,7 +4,7 @@
     import Tags from './Tags.svelte'
     import Notes from './Notes.svelte'
     import ImageCard from './furniture/ImageCard.svelte'
-    import {currentView} from '../../../utils/stores'
+    import {currentView} from '../../../utils/stores.js'
 
 
     $:imageUrl = $currentView.cards[cardId].imageUrl
@@ -13,4 +13,4 @@
 </script>
     <Tags cardId={cardId}/>
     <ImageCard cardId={cardId} bind:imageUrl={imageUrl} title = {title} colorShade={colorShade} />
-    <Notes  cardId={cardId} colorShade={colorShade} />
+    <!-- <Notes  cardId={cardId} colorShade={colorShade} /> -->

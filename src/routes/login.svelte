@@ -7,6 +7,7 @@
 	import Login from '../components/auth/login.svelte';
 	import { updateAlert } from '../utils/functions/alerts';
 
+
 	export let isNewRegistration = false;
 	// view user Store ciontents
 	user.subscribe((value) => {

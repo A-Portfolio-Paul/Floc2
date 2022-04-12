@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import supabase from '../lib/db';
-	import { user, sess } from '../utils/stores.js';
+	import { user, sess } from '../utils/stores';
 	import { goto } from '$app/navigation';
 	import Home from '../components/pages/home.svelte';
 	import Documents from '../components/docs/Documents.svelte';
@@ -31,7 +31,6 @@
 		});
 	};
 </script>
-
 {#if wiki}
 	<Folders />
 {:else if $user}
