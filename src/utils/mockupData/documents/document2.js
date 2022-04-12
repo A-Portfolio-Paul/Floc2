@@ -1,4 +1,5 @@
 import { user } from '../../stores';
+import { v4 as uuidv4 } from 'uuid';
 
 export const document2 = () => {
 	let userId;
@@ -8,7 +9,7 @@ export const document2 = () => {
 	// 	console.log('userId', userId);
 	// });
 	const res = {
-		docId: 'doc-102',
+		docId:'doc-' + uuidv4(),
 		createDate: '2022-03-25',
 		createdBy: userId,
 		title: 'Which Bicycle should I buy'

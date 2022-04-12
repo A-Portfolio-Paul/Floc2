@@ -5,11 +5,11 @@ export const view3 = () => {
 	// user.subscribe((value) => {
 	// 	userId = value.id;
 	// });
-	userId='d82d629e-168d-48f3-8100-b66e745c6b21'
+	userId = 'd82d629e-168d-48f3-8100-b66e745c6b21';
 	const res = {
 		viewId: 'vw-103',
 		userId: userId, //used for security in the database (must match current user to allow edit)
-		docId: 'doc-102',
+		docId: 'd82d629e-168d-48f3-8100-b66e745c6b41',
 		cardMap: {
 			1: { id: 1, items: [{ id: 2 }, { id: 3 }] },
 			2: { id: 2, items: [{ id: 4 }, { id: 5 }] },

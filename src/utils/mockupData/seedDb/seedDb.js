@@ -1,5 +1,7 @@
 // Authenticated user
 import { user } from '../../stores';
+import { v4 as uuidv4 } from 'uuid';
+
 
 // mock data
 import { auth_user_mock } from '../../mockupData/authUser';
@@ -43,7 +45,7 @@ const insertViews = async (view) => {
 
 		const { data, error } = await supabase
 			.from('views')
-			.insert([{ cardMap: view.cardMap, cards:view.cards , userId:user.id}]);
+			.insert([{ cardMap: view.cardMap, cards:view.cards , userId:view.userId, docId:view.docId}]);
 	} catch {
 		console.log(Error);
 	}
