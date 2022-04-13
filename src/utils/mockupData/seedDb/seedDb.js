@@ -34,7 +34,7 @@ const insertDocs = async (doc) => {
 
 		const { data, error } = await supabase
 			.from('documents')
-			.insert([{ title: doc.title, created_by: doc.createdBy }]);
+			.insert([{ title: doc.title, created_by: doc.createdBy, id2:doc.docId }]);
 	} catch {
 		console.log(Error);
 	}

@@ -7,15 +7,16 @@ import { auth_user_mock } from './mockupData/authUser';
 import { users_mock } from './mockupData/users';
 import { documents_mock } from './mockupData/documents';
 import { views_mock } from './mockupData/views';
+
+
+export const sess = writable(''); //session data
+export const alerts = writable({}); //alerts
+
 // stores
 export const user = writable(
 	supabase.auth.user() || //Authenticated user from Superbase
 		false
 );
-export const user_mock = writable({}); // used for docs (will replace when db integration complete)
-export const sess = writable(''); //session data
-export const alerts = writable({}); //alerts
-
 //Documents
 export const documents = writable({}); // all docs for user
 export const views = writable({}); // all views for user
@@ -25,14 +26,9 @@ export const currentDocument = writable({}); // current selected dcoument
 export const currentViews = writable({}); // Views for current document
 export const currentView = writable(); // authenticated users view of current document
 
-// This is hardcoded it will come from superbase when the data resides there
-let mockCurrentUser = 'ur-101';
-
 export const InitUserDocuments = () => {
-	user_mock.update((val) => {
-		val = auth_user_mock;
-		return val;
-	});
+	// This should come from the database
+	// ** THis is the next thing to complete
 	documents.update((val) => {
 		val = documents_mock;
 		return val;

@@ -1,12 +1,13 @@
 <script>
-		import { documents} from '../../utils/stores.js';
+		import { documents} from '../../utils/stores';
 		import ToolbarDocuments from './document/furniture/buttons/document/ToolbarDocuments.svelte'
 		import AddDocument from './document/furniture/buttons/document/AddDocument.svelte';
 
 		export let docId 
 
 		const loadDoc = (id) =>{
-		docId = id
+			docId = id
+			console.log('docId', docId)
 	}
 </script>
 

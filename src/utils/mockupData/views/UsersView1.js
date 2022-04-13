@@ -1,19 +1,12 @@
-import { user,documents } from '../../stores';
+import { user, documents } from '../../stores';
 import { v4 as uuidv4 } from 'uuid';
-
-
+import { mockIds } from '../../../utils/mockupData/mockids';
 
 export const view1 = () => {
-	let userId;
-	// user.subscribe((value) => {
-	// 	userId = value.id;
-	// 	console.log('userId', userId);
-	// });
-	userId='d82d629e-168d-48f3-8100-b66e745c6b21'
 	const res = {
-		viewId: 'view-' + uuidv4(),
-		userId: userId, //used for security in the database (must match current user to allow edit)
-		docId: 'd82d629e-168d-48f3-8100-b66e745c6b41',
+		viewId: uuidv4(),
+		userId: mockIds.AuthenticatedUserId,
+		docId: mockIds.doc1,
 		cardMap: {
 			1: { id: 1, items: [{ id: 2 }, { id: 3 }] },
 			2: { id: 2, items: [{ id: 4 }, { id: 5 }] },

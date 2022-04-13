@@ -7,7 +7,6 @@
 	import Login from '../components/auth/login.svelte';
 	import { updateAlert } from '../utils/functions/alerts';
 
-
 	export let isNewRegistration = false;
 	// view user Store ciontents
 	user.subscribe((value) => {
@@ -34,11 +33,17 @@
 
 	const login = async () => {
 		let { user: userDetails, error } = await supabase.auth.signIn({
-			// hardcoded to make dev easier
+			// to remove hardcoding use below
 			// email: email,
 			// password: password
+			// hardcoded
 			email: 'timrie@theemailaddy.com',
 			password: '1234567890'
+			//id: d82d629e-168d-48f3-8100-b66e745c6b21
+			//user 2
+			// email: 'hepbaj@myspainishmail.com ',
+			// password: '1234567890',
+			// id: '1d89c4f5-c38a-44c3-93aa-9290e1d3673e'
 		});
 		if (error) {
 			updateAlert(error.message, 'error');

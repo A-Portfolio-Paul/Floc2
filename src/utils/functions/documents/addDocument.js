@@ -7,6 +7,7 @@ import { newView } from '../../functions/documents/newObj/view';
 import { user } from '../../stores';
 
 export const addDocument = () => {
+	
 	let userId;
 	user.subscribe((value) => {
 		userId = value.id;
