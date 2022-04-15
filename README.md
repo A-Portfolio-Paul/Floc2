@@ -9,3 +9,5 @@ An application to allow people to document and share research they complete onli
 - update package.json
 - create new .env files
 - test
+
+test for macbook pro
