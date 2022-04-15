@@ -5,7 +5,7 @@
 
 	const runFunction = () => {
 		if (data == 'default') {
-			console.log('no prop');
+			console.log('function passed with 0 args');
 			action();
 		} else {
 			console.log('GOT prop');

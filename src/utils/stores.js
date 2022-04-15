@@ -26,8 +26,9 @@ export const currentDocument = writable({}); // current selected dcoument
 export const currentViews = writable({}); // Views for current document
 export const currentView = writable(); // authenticated users view of current document
 
+
 export const InitUserDocuments = () => {
-	// This should come from the database
+	// This should come from the database     //see storesFunc.js
 	// ** THis is the next thing to complete
 	documents.update((val) => {
 		val = documents_mock;
