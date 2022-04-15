@@ -8,6 +8,9 @@ import { users_mock } from './mockupData/users';
 import { documents_mock } from './mockupData/documents';
 import { views_mock } from './mockupData/views';
 
+//
+import {loadDocs  } from './storesfuncs'
+
 
 export const sess = writable(''); //session data
 export const alerts = writable({}); //alerts
@@ -28,6 +31,7 @@ export const currentView = writable(); // authenticated users view of current do
 
 
 export const InitUserDocuments = () => {
+	// loadDocs()
 	// This should come from the database     //see storesFunc.js
 	// ** THis is the next thing to complete
 	documents.update((val) => {
