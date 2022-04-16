@@ -1,5 +1,6 @@
 <script>
 	export let docId;
+	export let dummyData;
 	import Card from './Card.svelte';
 	import ShowPreview from './furniture/buttons/document/ShowPreview.svelte';
 	import ExitDocument from './furniture/buttons/document/exitDocument.svelte'
@@ -8,16 +9,24 @@
 		currentDocument,
 		currentViews,
 		currentView,
-		initCurrentDocument
 	} from '../../../utils/stores'
+	import {initCurrentDoc} from '../../../utils/storesInitMock'
 
 	let colorShade = 1;
 	let preview = false;
+	const dbDataPlaceholder = () => {
+		console.log('dbDataPlaceholder running....');
+	};
+
+	const dataPicker = () => {
+		dummyData ? initCurrentDoc() : dbDataPlaceholder();
+	};
+
 	const startingCardId = '1';
 	// const node =  JSON.parse(JSON.stringify($currentView[0].cardMap));
 
 	//Inititalize the document
-	initCurrentDocument(docId);
+	initCurrentDoc(docId);
 	// View Stores
 	currentDocument.subscribe((value) => {
 		console.log('STORE:currentDocument:', value);
@@ -36,13 +45,7 @@
 		<ExitDocument bind:docId={docId}/>
 		<ShowPreview bind:preview />
 	</div>
-	{#if preview == true}
-		<!-- <Preview {cardId} {colorShade} node={$nodes[1]}/> -->
-		preview {docId}
-	{:else}
-	<div class={'p-2 rounded-md level' + colorShade}>
-			
-			<Card  card={$currentView.cardMap[1]} {colorShade} />
-		</div>
-	{/if}
+	<div class={'p-2 rounded-md level' + colorShade}>	
+		<Card  card={$currentView.cardMap[1]} {colorShade} />
+	</div>
 </main>

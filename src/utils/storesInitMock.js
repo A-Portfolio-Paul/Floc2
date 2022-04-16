@@ -2,7 +2,7 @@
 import { getObjById } from './functions/utilities/arrayFn';
 //stores
 import {user_mock, documents, views,users} from './stores'
-import {currentDocument, currentViews,currentView } from './stores'
+import {currentDocument, currentViews,currentView ,user} from './stores'
 
 // mock data
 import { auth_user_mock } from './mockupData/authUser';
@@ -37,7 +37,7 @@ const InitUserDocuments = () => {
 		return val;
 	});
 };
-export const initCurrentDocument = (docId) => {
+export const initCurrentDoc = (docId) => {
 	let _views;
 	let _currentViews;
 	views.subscribe((value) => {
@@ -55,5 +55,18 @@ export const initCurrentDocument = (docId) => {
 		console.log('_currentViews', _currentViews);
           val = _currentViews
 		return val;
+	});
+	currentView.update((val) => {
+        console.log('currentView running....')
+          let _userId
+          user.subscribe((value) => {
+               _userId = value.id;
+          });
+
+        console.log('currentViews',_currentViews)
+	     const valArr = getObjById(_currentViews, _userId, 'userId');
+	     console.log('currentView valArr::::::::',valArr)
+	     val = valArr[0]
+	     return val;
 	});
 }

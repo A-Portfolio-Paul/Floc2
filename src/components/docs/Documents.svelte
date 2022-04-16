@@ -6,7 +6,7 @@
 	//components
 	import DocHeader from './DocHeader.svelte';
 	import DocumentsTable from './DocumentsTable.svelte';
-	// import Document from './document/Document.svelte';
+	import Document from './document/Document.svelte';
 
 	// testing toolbar
 	import TestingToolbar from '../layout/furniture/buttons/TestingToolbar.svelte';
@@ -45,8 +45,8 @@
 			<DocumentsTable bind:docId />
 		{:else}
 			<!-- open component when click on one in the list -->
-			<Document bind:docId />
-			<p>Individual document goes here</p>
+			<Document bind:docId dummyData={dummyData}/>
+		
 		{/if}
 	{:catch error}
 		<p>An error occurred!</p>

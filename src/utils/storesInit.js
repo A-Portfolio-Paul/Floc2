@@ -4,7 +4,7 @@ import {user,sess ,alerts,documents,views,users,currentDocument,currentViews, cu
 // Mock data
 import {users_mock} from '../utils/mockupData/users' 
 //Functions
-import {getObjById} from './functions/utilities/arrayFn'
+import {getObjById} from './functions/utilities/'
 
 
 
