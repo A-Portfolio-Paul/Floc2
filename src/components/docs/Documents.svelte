@@ -1,15 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
+	//stores
 	import { storesInitMock } from '../../utils/storesInitMock';
+	import { documents, views } from '../../utils/stores';
+	//components
+	import DocHeader from './DocHeader.svelte';
 	import DocumentsTable from './DocumentsTable.svelte';
 	// import Document from './document/Document.svelte';
-	
-	import DocHeader from './DocHeader.svelte';
+
 	// testing toolbar
 	import TestingToolbar from '../layout/furniture/buttons/TestingToolbar.svelte';
-	// Import stores to display the initialized vals
-	import { documents, views } from '../../utils/stores';
-	import { faTruckLoading } from '@fortawesome/free-solid-svg-icons';
+
 
 	$: docId = false;
 	const dummyData = true;
@@ -35,31 +36,20 @@
 </script>
 
 <div class="max-w-2xl mx-auto">
-	<!-- <TestingToolbar /> -->
+	<DocHeader {docId}/>
+	<TestingToolbar />
 	{#await dataPicker()}
 		<p>...waiting</p>
 	{:then data}
 		{#if docId == false}
 			<DocumentsTable bind:docId />
 		{:else}
-			<!-- <Document bind:docId /> -->
+			<!-- open component when click on one in the list -->
+			<Document bind:docId />
 			<p>Individual document goes here</p>
 		{/if}
 	{:catch error}
 		<p>An error occurred!</p>
 	{/await}
 
-	<!-- 
-	<p>data in store</p>
-	<DocumentsTable bind:docId />
-	{:else}
-	<p>Loading....</p>
-	{/if} -->
-
-	<!-- <DocumentsTable bind:docId /> -->
-	<!-- {#if docId == false}
-		<DocumentsTable bind:docId />
-	{:else}
-		<Document bind:docId />
-	{/if} -->
 </div>

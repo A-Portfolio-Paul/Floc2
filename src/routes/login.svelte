@@ -9,9 +9,7 @@
 
 	export let isNewRegistration = false;
 	// view user Store ciontents
-	user.subscribe((value) => {
-		console.log('STORE:user:', value);
-	});
+
 
 	//set vars
 	let email = '';
