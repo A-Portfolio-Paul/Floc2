@@ -1,19 +1,25 @@
 import supabase from '../lib/db';
 import {views, documents } from './stores'
 
-let docs
-const updateStore = (newVal) =>{
-    console.log('updateStore....' , newVal)
-    documents.update((val) => {
-		val = newVal
-		return val;
-	});
-}
-
 export const loadDocs = async () => {
     try {
         let { data, err } = await supabase.from('documents').select('*');
-        updateStore(data)
+        documents.update((val) => {
+            val = data
+            return val;
+        });
+    } catch {
+        console.log(err);
+    }
+};
+//update views
+export const loadViews = async () => {
+    try {
+        let { data, err } = await supabase.from('views').select('*');
+        views.update((val) => {
+            val = data
+            return val;
+        });
     } catch {
         console.log(err);
     }
