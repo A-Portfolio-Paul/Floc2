@@ -1,7 +1,10 @@
 import supabase from '../lib/db';
-import {views, documents } from './stores'
+//stores
+import {user,sess ,alerts,documents,views,users,currentDocument,currentViews, currentView} from './stores'
 // Mock data
 import {users_mock} from '../utils/mockupData/users' 
+
+
 
 const loadDocs = async () => {
     try {
@@ -28,13 +31,14 @@ const loadViews = async () => {
         console.log(err);
     }
 };
-export const initStores = async () =>{
-    await loadDocs()
-    await loadViews()
-    users.update((val) => {
-		val = users_mock;
-		return val;
-	});
+export const storesInit = async () =>{
+    console.log('stores are initializing with live data.......')
+    // await loadDocs()
+    // await loadViews()
+    // users.update((val) => {
+	// 	val = users_mock;
+	// 	return val;
+	// });
 }
 
 
@@ -75,17 +79,17 @@ export const initCurrentDocument = (docId) => {
 // 	});
 // };
 
-export const saveSuperbase = async (userId) => {
-	console.log('saving........',userId);
-	try {
+// export const saveSuperbase = async (userId) => {
+// 	console.log('saving........',userId);
+// 	try {
 
-		const { data, error } = await supabase
-			.from('documents')
-			.insert([{ title: 'Dummy document', createdBy: userId }]);
-	} catch {
-		console.log(Error);
-	}
-};
+// 		const { data, error } = await supabase
+// 			.from('documents')
+// 			.insert([{ title: 'Dummy document', createdBy: userId }]);
+// 	} catch {
+// 		console.log(Error);
+// 	}
+// };
 
 
 

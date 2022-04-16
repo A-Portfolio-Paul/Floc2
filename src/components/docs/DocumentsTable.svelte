@@ -1,6 +1,6 @@
 <script>
 		import { documents} from '../../utils/stores';
-		import ToolbarDocuments from './document/furniture/buttons/document/ToolbarDocuments.svelte'
+		// import ToolbarDocuments from './document/furniture/buttons/document/ToolbarDocuments.svelte'
 		import AddDocument from './document/furniture/buttons/document/AddDocument.svelte';
 
 		export let docId 
@@ -11,7 +11,6 @@
 	}
 </script>
 
-<!-- This is an example component -->
 
 	<AddDocument/>
 	<div class="flex flex-col">
@@ -62,7 +61,7 @@
 									>{document.title}</td
 								>
 								<td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-									<ToolbarDocuments docId={document.docId}/>
+									<!-- <ToolbarDocuments docId={document.docId}/> -->
 								</td>
 							</tr>
 						</tbody>

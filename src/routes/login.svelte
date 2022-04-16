@@ -2,7 +2,7 @@
 	import { goto } from '$app/navigation';
 	import supabase from '../lib/db';
 	//Stores
-	import { user, InitUserDocuments } from '../utils/stores';
+	import { user } from '../utils/stores';
 	import Register from '../components/auth/register.svelte';
 	import Login from '../components/auth/login.svelte';
 	import { updateAlert } from '../utils/functions/alerts';
@@ -51,7 +51,6 @@
 		} else {
 			updateAlert('Login successful', 'notify');
 			$user = userDetails;
-			await InitUserDocuments();
 			await goto('/');
 		}
 	};

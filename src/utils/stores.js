@@ -8,6 +8,9 @@ export const user = writable(
 	);
 export const sess = writable(''); //session data
 export const alerts = writable({}); //alerts
+// mock data 
+export const user_mock = writable({}); // used for docs (will replace when db integration complete)
+//Documents
 export const documents = writable({}); // all docs for user
 export const views = writable({}); // all views for user
 export const users = writable({}); // all users that conrributed to users docs

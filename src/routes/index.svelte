@@ -34,7 +34,10 @@
 {#if wiki}
 	<Folders />
 {:else if $user}
+<div>
 	<Documents />
+
+</div>
 {:else}
 	<Home />
 {/if}
