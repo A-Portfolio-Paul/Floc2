@@ -1,3 +1,14 @@
+// create stores
+// initalize storesSt
+
+
+// storesDefine
+// storesInit
+// storesModify
+// storesSave
+
+
+
 import { writable } from 'svelte/store';
 import supabase from '../lib/db';
 import { getObjById } from './functions/utilities/arrayFn';
@@ -30,21 +41,22 @@ export const currentView = writable(); // authenticated users view of current do
 
 
 export const InitUserDocuments = () => {
-	// loadDocs()
 	// This should come from the database     //see storesFunc.js
 	// ** THis is the next thing to complete
-	documents.update((val) => {
-		val = documents_mock;
-		return val;
-	});
-	views.update((val) => {
-		val = views_mock;
-		return val;
-	});
+	// documents.update((val) => {
+	// 	val = documents_mock;
+	// 	return val;
+	// });
+	// views.update((val) => {
+	// 	val = views_mock;
+	// 	return val;
+	// });
 	users.update((val) => {
 		val = users_mock;
 		return val;
 	});
+	loadDocs()
+	loadViews()
 };
 
 export const initCurrentDocument = (docId) => {
