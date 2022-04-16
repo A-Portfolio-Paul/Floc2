@@ -1,6 +1,6 @@
 <script>
 import Button from './Button.svelte'
-import{loadDocs} from '../../../../utils/storesfuncs'
+import{loadDocs} from '../../../../utils/storesInit'
 import { seedDb } from '../../../../utils/mockupData/seedDb/seedDb';
 </script>
 
