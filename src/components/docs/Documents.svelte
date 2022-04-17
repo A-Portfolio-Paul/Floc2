@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	//stores
-	import { storesInitMock } from '../../utils/storesInitMock';
+	import { initMockDocs } from '../../utils/storesInitMock';
 	import { documents, views } from '../../utils/stores';
 	//components
 	import DocHeader from './DocHeader.svelte';
@@ -10,33 +10,31 @@
 
 	// testing toolbar
 	import TestingToolbar from '../layout/furniture/buttons/TestingToolbar.svelte';
-
-
 	$: docId = false;
 	const dummyData = true;
 
-	const dbDataPlaceholder = () => {
-		console.log('dbDataPlaceholder running....');
-	};
-
 	const dataPicker = () => {
-		dummyData ? storesInitMock() : dbDataPlaceholder();
+		console.log('datapicker running')
+		const dbDataPlaceholder = () => {
+			console.log('dbDataPlaceholder running....');
+		};
+		dummyData ? initMockDocs() : dbDataPlaceholder();
 	};
 
 	onMount(async () => {
 		console.log('Documents mounted.......');
 		// view stores
-		documents.subscribe((value) => {
-			console.log('STORE:documents initialized:', value);
-		});
-		views.subscribe((value) => {
-			console.log('STORE:views initialized:', value);
-		});
+		// documents.subscribe((value) => {
+		// 	console.log('STORE:documents initialized:', value);
+		// });
+		// views.subscribe((value) => {
+		// 	console.log('STORE:views initialized:', value);
+		// });
 	});
 </script>
 
 <div class="max-w-2xl mx-auto">
-	<DocHeader {docId}/>
+	<DocHeader {docId} />
 	<TestingToolbar />
 	{#await dataPicker()}
 		<p>...waiting</p>
@@ -45,11 +43,9 @@
 			<DocumentsTable bind:docId />
 		{:else}
 			<!-- open component when click on one in the list -->
-			<Document bind:docId dummyData={dummyData}/>
-		
+			<Document bind:docId {dummyData} />
 		{/if}
 	{:catch error}
 		<p>An error occurred!</p>
 	{/await}
-
 </div>

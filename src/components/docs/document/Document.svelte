@@ -10,7 +10,7 @@
 		currentViews,
 		currentView,
 	} from '../../../utils/stores'
-	import {initCurrentDoc} from '../../../utils/storesInitMock'
+	import {initCurrentDocMock} from '../../../utils/storesInitMock'
 
 	let colorShade = 1;
 	let preview = false;
@@ -18,15 +18,13 @@
 		console.log('dbDataPlaceholder running....');
 	};
 
-	const dataPicker = () => {
-		dummyData ? initCurrentDoc() : dbDataPlaceholder();
+	const dataPicker = (docId) => {
+		dummyData ? initCurrentDocMock(docId) : dbDataPlaceholder(docId);
 	};
 
 	const startingCardId = '1';
-	// const node =  JSON.parse(JSON.stringify($currentView[0].cardMap));
-
 	//Inititalize the document
-	initCurrentDoc(docId);
+	dataPicker(docId);
 	// View Stores
 	currentDocument.subscribe((value) => {
 		console.log('STORE:currentDocument:', value);

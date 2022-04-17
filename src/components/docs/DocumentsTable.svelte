@@ -10,10 +10,7 @@
 			console.log('docId', docId)
 	}
 </script>
-
-
 	<AddDocument/>
-	
 	<div class="flex flex-col">
 		<div class="overflow-x-auto shadow-md sm:rounded-lg">
 			<div class="inline-block min-w-full align-middle">
