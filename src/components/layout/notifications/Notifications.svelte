@@ -20,6 +20,16 @@
 <!-- Toast Container -->
 <!-- put taost notification in here , to cope when the toast more than one -->
 <!-- class="absolute right-0 top-0 m-5" For put toast on top right -->
+
+
+alerts need to be an array
+notificaitons needs to loop array
+alerts need to be erased from store after given time or closed
+
+
+
+
+
 {#if displayNotification == true}
 	<div on:click={hide} class="pt-4 flex flex-col justify-center">
 		<Notification />
